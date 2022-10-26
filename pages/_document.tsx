@@ -119,7 +119,7 @@ export default class MyDocument extends Document {
   <button onclick="welcome()"> Welcome to our website </button>
 </body>
 
-<style>
+<!--<style>
   /* :root {
       --bg-color: #f6f6f6;
       --fg-color: #373530;
@@ -218,7 +218,7 @@ export default class MyDocument extends Document {
       pointer-events: unset !important;
       /*add this so the embeds can be clickable*/
   } */
-</style>`
+</style>-->`
     function createMarkup(c){
       return { __html: c };
     }
