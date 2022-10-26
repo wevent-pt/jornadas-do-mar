@@ -153,9 +153,9 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .notion-search-button {
+  /* .notion-search-button {
     display: none !important;
-  }
+  } */
 }
 
 .notion .notion-page-icon-cover {

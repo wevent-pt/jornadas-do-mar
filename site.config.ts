@@ -53,16 +53,12 @@ export default siteConfig({
   navigationStyle: 'custom',
   navigationLinks: [
     {
-      title: 'About',
-      pageId: 'f1199d37579b41cbabfc0b5174f4256a'
-    },
-    {
-      title: 'Contact',
-      pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
+      title: 'Salas',
+      pageId: 'f67a84baba46438284ca2217ca69207e'
     },
     {
       title: 'Login',
       pageId: '652dce0865f64a84a19bd0151821007b'
-    }
+    },
   ]
 })
