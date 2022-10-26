@@ -11,7 +11,7 @@ export default siteConfig({
   // basic site info (required)
   name: 'Jornadas do Mar',
   domain: 'mar.pedro.gq',
-  author: 'pedro',
+  author: 'wevent',
 
   // open graph metadata (optional)
   description: 'A experiência do meio aquático do ano!',
@@ -25,7 +25,7 @@ export default siteConfig({
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults
-  defaultPageIcon: null,
+  defaultPageIcon: 'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bd9719e2-8c85-4486-ae24-c2da21af2787/pWHhSQs.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221026T155955Z&X-Amz-Expires=86400&X-Amz-Signature=e4b696ffd379cca965400e5ce82a394ffdad513ff6e18af78e4c0f19a8f424bd&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22pWHhSQs.svg%22&x-id=GetObject',
   defaultPageCover: null,
   defaultPageCoverPosition: 0.5,
 
@@ -59,6 +59,10 @@ export default siteConfig({
     {
       title: 'Contact',
       pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
+    },
+    {
+      title: 'Login',
+      pageId: '652dce0865f64a84a19bd0151821007b'
     }
   ]
 })
