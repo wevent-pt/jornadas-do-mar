@@ -44,7 +44,7 @@ export default class MyDocument extends Document {
           document.body.appendChild(mojoEl);
           var mojoauth = new MojoAuth(apikey, {
               language: 'language_code',
-              redirect_url: "https://jornadasdomar.pedro.gq",
+              redirect_url: "https://jornadasdomar.pedro.gq/log-in",
               source: [{
                   type: "email",
                   feature: "magiclink"
