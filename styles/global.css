@@ -7,6 +7,11 @@ a {
   text-decoration: none;
 }
 
+:root {
+  --bg-color: #FCFCF4;
+  --fg-color: #252b2a;
+}
+
 body,
 html {
   padding: 0;
