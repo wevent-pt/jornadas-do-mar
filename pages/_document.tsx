@@ -33,7 +33,7 @@ export default class MyDocument extends Document {
   <script type="text/javascript">
       var AccessToken = localStorage.getItem("userToken");
       var EmailSaved = localStorage.getItem("userEmailSaved");
-      const apikey = "test-719a9ce7-f1d9-4044-bc09-783779c4f9bb"
+      const apikey = "83067ff0-ab00-465e-bf33-26942b8977e2"
       // If we don't find access token we open acess to do the login
       if (AccessToken == null && (location.pathname.split('/')[1].split('-')[0] == "log")) {
           //add mojo div
@@ -72,9 +72,12 @@ export default class MyDocument extends Document {
                   window.location.reload();
                   return false;
               } else {
-                  console.log("valid log in, proceed", response);
-                  document.getElementById("mojoauth-passwordless-form").remove();
-                  console.log("removed mojo aftyer verification");
+                  console.log("valid log in, proceed", response); 
+                  if (document.getElementById('mojoauth-passwordless-form')) {
+                    document.getElementById('mojoauth-passwordless-form').outerHTML = '';
+                    console.log("removed mojo aftyer verification");
+                  }
+                  
               }
           });
       } else { //remove mojo
@@ -93,7 +96,7 @@ export default class MyDocument extends Document {
               console.log("URL changed from " + previousUrl + " to " + window.location.href);
               previousUrl = window.location.href;
               // do your thing
-              if ((location.pathname.split('/')[1].split('-')[0] != "log")) ) {
+              if ((location.pathname.split('/')[1].split('-')[0] != "log")) {
                   //remove mojo div
                   if (document.getElementById('mojoauth-passwordless-form')) {
                       document.getElementById('mojoauth-passwordless-form').outerHTML = '';
