@@ -7,6 +7,10 @@ a {
   text-decoration: none;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --bg-color: #FCFCF4;
   --fg-color: #252b2a;

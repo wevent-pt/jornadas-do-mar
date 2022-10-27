@@ -122,7 +122,13 @@ export default class MyDocument extends Document {
 <body>
   <button onclick="welcome()"> Welcome to our website </button>
 </body>
-
+<style>
+.notion-block-93ecb7a733b146e8846df004c4e841a4{
+  max-width: none;
+  max-height: none;
+  width: 100vw;
+}
+</style>
 <!--<style>
   /* :root {
       --bg-color: #f6f6f6;

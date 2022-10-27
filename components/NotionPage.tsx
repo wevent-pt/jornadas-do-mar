@@ -142,6 +142,7 @@ const propertyTextValue = (
   return defaultFn()
 }
 
+
 export const NotionPage: React.FC<types.PageProps> = ({
   site,
   recordMap,
@@ -164,7 +165,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       Header: NotionPageHeader,
       propertyLastEditedTimeValue,
       propertyTextValue,
-      propertyDateValue
+      propertyDateValue,
     }),
     []
   )
