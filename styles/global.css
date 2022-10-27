@@ -16,6 +16,11 @@ body,
 html {
   padding: 0;
   margin: 0;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar{
+    width: 0em !important;
 }
 
 body {
