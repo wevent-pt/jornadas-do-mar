@@ -20,7 +20,7 @@
 }
  
 .index-page {
-  --notion-max-width: 1920px;
+  --notion-max-width: 100vw;
 }
 .index-page .notion-title {
   display: none !important;
