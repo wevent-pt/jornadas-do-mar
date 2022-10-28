@@ -53,11 +53,7 @@ export default siteConfig({
   navigationStyle: 'custom',
   navigationLinks: [
     {
-      title: 'Salas',
-      pageId: 'f67a84baba46438284ca2217ca69207e'
-    },
-    {
-      title: 'Login',
+      title: 'Entrar',
       pageId: '652dce0865f64a84a19bd0151821007b'
     },
   ]

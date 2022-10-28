@@ -22,9 +22,6 @@ const ToggleThemeButton = () => {
   const onToggleTheme = React.useCallback(() => {
     toggleDarkMode()
   }, [toggleDarkMode])
-
-  
-
   return (
     <div
       className={cs('breadcrumb', 'button', !hasMounted && styles.hidden)}
@@ -34,7 +31,6 @@ const ToggleThemeButton = () => {
     </div>
   )
 }
-
 
 const SiteName = () => {
   const [hasMounted, setHasMounted] = React.useState(false)
@@ -51,30 +47,33 @@ const SiteName = () => {
         behavior: 'smooth',
     });
 
-
-
   };
   
   return (
     <div className={cs('breadcrumbs',!hasMounted && styles.hidden)}>
       <div className={cs('breadcrumb', 'active',!hasMounted && styles.hidden)}>
-        <span className={cs('title',!hasMounted && styles.hidden)} onClick={goToTop}>Jornadas do mar</span>
+        <span className={cs('title',!hasMounted && styles.hidden)} onClick={goToTop}>↑</span>
       </div>
     </div>
   )
 }
 
 
-export const NotionPageHeader: React.FC<{
-  block: types.CollectionViewPageBlock | types.PageBlock
-}> = ({ block }) => {
-  const { components, mapPageUrl } = useNotionContext()
+const SiteName1 = () => {
+  const [hasMounted, setHasMounted] = React.useState(false)
 
+  React.useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+  }
   const goToMenu = () => {
-
-
     const el = document.getElementsByClassName("notion-page-scroller");
-
    
     const elHeight = el[0].offsetHeight;
      console.log(elHeight);
@@ -83,26 +82,83 @@ export const NotionPageHeader: React.FC<{
         behavior: 'smooth',
     });
 
+  };
+  return (
+    <div
+      className={cs('breadcrumb', 'button')}
+      onClick={goToMenu}
+      >Menu
+    </div>
+  )
+}
+const SiteName2 = () => {
+  const [hasMounted, setHasMounted] = React.useState(false)
 
+  React.useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+  }
+  const goToMenu = () => {
+    const el = document.getElementsByClassName("notion-page-scroller");
+   
+    const elHeight = el[0].offsetHeight;
+     console.log(elHeight);
+    window.scrollTo({
+        top: elHeight,
+        behavior: 'smooth',
+    });
 
   };
+  return (
+    <div
+      className={cs('breadcrumb', 'button')}
+      onClick={goToTop}
+      >↑
+    </div>
+  )
+}
+export const NotionPageHeader: React.FC<{
+  block: types.CollectionViewPageBlock | types.PageBlock
+}> = ({ block }) => {
+  const { components, mapPageUrl } = useNotionContext()
+  const goToMenu = () => {
+    const el = document.getElementsByClassName("notion-page-scroller");
+   
+    const elHeight = el[0].offsetHeight;
+     console.log(elHeight);
+    window.scrollTo({
+        top: elHeight,
+        behavior: 'smooth',
+    });
 
-  
+  };
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+  };
 
   if (navigationStyle === 'default') {
     return <Header block={block} />
   }
-
   return (
     <header className='notion-header'>
       <div className='notion-nav-header'>
         {/*a div com o title está detro deste Breadcrumbs, que é um componente do react*/}
-        {/*<Breadcrumbs block={block} rootOnly={true}/>*/}
-        <SiteName/>
+        <Breadcrumbs block={block} rootOnly={true}/>
+        {/* <SiteName/> */}
 
 
       {/*A partir daqui já são as outras cenas da nav bar*/}
         <div className='notion-nav-header-rhs breadcrumbs'>
+          <ToggleThemeButton />
           {navigationLinks
             ?.map((link, index) => {
               if (!link.pageId && !link.url) {
@@ -112,7 +168,7 @@ export const NotionPageHeader: React.FC<{
               if (link.pageId) {
 
 
-                if(link.title == 'Salas'){
+                if(link.title == 'Menu'){
                   return (
                     <components.PageLink
                         // href={'#notion-block-2b73879c0c6946ecab00afc63c74edbd'}
@@ -149,10 +205,9 @@ export const NotionPageHeader: React.FC<{
               }
             })
             .filter(Boolean)}
-
-          <ToggleThemeButton />
-
-          {/*{isSearchEnabled && <Search block={block} title={null} />}*/}
+          <SiteName1 />
+          <SiteName2 />
+          {/* {isSearchEnabled && <Search block={block} title={null} />} */}
         </div>
       </div>
     </header>
