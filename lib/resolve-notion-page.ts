@@ -89,7 +89,7 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
     console.log(site)
     recordMap = await getPage(pageId)
   } 
-    const res = await fetch('http://localhost:3000/api/html/index')
+    const res = await fetch('http://jornadasdomar.pedro.gq/api/html/index')
     // console.log("\n\n\nres:::::", res)
     htmlToPage = await res.json()
     console.log("htmlToPage:::\n", htmlToPage)
