@@ -41,3 +41,10 @@ try {
 //     res.status(200).json(results)
 //   }
   
+//queremos dar fetch assim:::
+// url="https://notion-api.splitbee.io/v1/table/8a37c9686d234a84923f0390dde78017"
+
+// fetch(url)
+//   .then((response) => response.json())
+//   .then((data) => console.log(data.find(x => x.slug === 'log-in').html));
+
