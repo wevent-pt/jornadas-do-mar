@@ -44,12 +44,13 @@ app.get('/api/html/:sala', async (req, res) => {
   for (let index = 0; index < data1.rich_text.length; index++) {
     // const element = array[index];
     data2 = data2 + data1.rich_text[index].plain_text
-    console.log(index);    
+    // console.log(index);    
   }
-  console.log(data2)
+  // console.log(data2)
   // console.log(data)
   // console.log("dataaaaaaaa", data)
-  res.send(data2)	
+  //res.send(data2)	
+  res.json(data2)	
 });
 
 

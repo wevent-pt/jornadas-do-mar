@@ -10,6 +10,9 @@ import { getPage } from './notion'
 export async function resolveNotionPage(domain: string, rawPageId?: string) {
   let pageId: string
   let recordMap: ExtendedRecordMap
+  let htmlToPage: string = ''
+  
+
 
   if (rawPageId && rawPageId !== 'index') {
     pageId = parsePageId(rawPageId)
@@ -30,7 +33,7 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
     // TODO: should we use a TTL for these mappings or make them permanent?
     // const cacheTTL = 8.64e7 // one day in milliseconds
     const cacheTTL = undefined // disable cache TTL
-
+    
     if (!pageId && useUriToPageIdCache) {
       try {
         // check if the database has a cached mapping of this URI to page ID
@@ -80,12 +83,17 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
       }
     }
   } else {
-    pageId = site.rootNotionPageId
+    pageId = site.rootNotionPageId 
+
 
     console.log(site)
     recordMap = await getPage(pageId)
-  }
+  } 
+    const res = await fetch('http://localhost:3000/api/html/index')
+    // console.log("\n\n\nres:::::", res)
+    htmlToPage = await res.json()
+    console.log("htmlToPage:::\n", htmlToPage)
 
-  const props = { site, recordMap, pageId }
+  const props = { site, recordMap, pageId, htmlToPage }
   return { ...props, ...(await acl.pageAcl(props)) }
 }
