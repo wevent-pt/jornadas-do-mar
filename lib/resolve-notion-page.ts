@@ -89,10 +89,14 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
     console.log(site)
     recordMap = await getPage(pageId)
   } 
-    const res = await fetch('http://jornadasdomar.pedro.gq/api/html/index')
-    // console.log("\n\n\nres:::::", res)
-    htmlToPage = await res.json()
-    console.log("htmlToPage:::\n", htmlToPage)
+
+    let dataFetched: any
+    await fetch('https://notion-cloudflare-worker.pedrogq.workers.dev/v1/' + 'table/8a37c9686d234a84923f0390dde78017')
+      .then((response) => response.json())
+      .then((data) => { dataFetched = (data)});
+    htmlToPage = dataFetched.find(x => x.slug === 'index').html;
+
+    // console.log("htmlToPage:::\n", htmlToPage)
 
   const props = { site, recordMap, pageId, htmlToPage }
   return { ...props, ...(await acl.pageAcl(props)) }

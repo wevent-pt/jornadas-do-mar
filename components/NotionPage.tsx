@@ -147,7 +147,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
   site,
   recordMap,
   error,
-  pageId
+  pageId,
+  htmlToPage
 }) => {
   const router = useRouter()
   const lite = useSearchParam('lite')
@@ -242,7 +243,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const socialDescription =
     getPageProperty<string>('Description', block, recordMap) ||
     config.description
-
+    function createMarkup(c){
+      return { __html: c };
+    }
   return (
     <>
       <PageHead
@@ -283,7 +286,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       />
 
       {/*<GitHubShareButton />*/}
-      
+      <div dangerouslySetInnerHTML={createMarkup(htmlToPage)}></div>
     </>
   )
 }
