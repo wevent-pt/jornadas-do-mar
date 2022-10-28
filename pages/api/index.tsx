@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json({ limit: 100000 }));
 const config= {
   method: 'post',
-  url: 'https://api.notion.com/v1/databases/8fd27dafa3c947a1a15fd16c5936e63b/query',
+  url: 'https://notion-cloudflare-worker.pedrogq.workers.dev/v1/databases/8fd27dafa3c947a1a15fd16c5936e63b/query',
   headers: { 
     'Notion-Version': '2022-06-28', 
     'Authorization': 'Bearer secret_L9Vj4blk7LWEN5ds7Wiyb2YfSF0K8ZI0p30uqYAtJgv'
@@ -18,7 +18,7 @@ const config= {
 
 async function callNotionApi(path){
 
-  config.url = 'https://api.notion.com/v1/' + path;
+  config.url = 'https://notion-cloudflare-worker.pedrogq.workers.dev/v1/' + path;
 	const res = await axios(config);
 
 	// console.log(JSON.stringify(res.data));
