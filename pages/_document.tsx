@@ -292,7 +292,7 @@ export default class MyDocument extends Document {
             <Main />
 
             <NextScript />
-            <div dangerouslySetInnerHTML={createMarkup(html)}></div>
+            {/* <div dangerouslySetInnerHTML={createMarkup(html)}></div> */}
           </body>
         </Html>
       </IconContext.Provider>
