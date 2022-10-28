@@ -136,7 +136,7 @@ export default class MyDocument extends Document {
   }
 
   body {
-      overflow: scroll;
+      overflow-x: scroll;
       overflow-x: hidden !important;
       scrollbar-width: none;
       background-color: #FCFCF4 !important;
