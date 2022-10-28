@@ -73,7 +73,7 @@ const SiteName1 = () => {
     });
   }
   const goToMenu = () => {
-    const el = document.getElementsByClassName("notion-page-scroller");
+    const el = document.getElementsByClassName("notion-page-scroller") as HTMLCollectionOf<HTMLElement>;;
    
     const elHeight = el[0].offsetHeight;
      console.log(elHeight);
@@ -105,7 +105,7 @@ const SiteName2 = () => {
     });
   }
   const goToMenu = () => {
-    const el = document.getElementsByClassName("notion-page-scroller");
+    const el = document.getElementsByClassName("notion-page-scroller") as HTMLCollectionOf<HTMLElement>;;
    
     const elHeight = el[0].offsetHeight;
      console.log(elHeight);
@@ -128,7 +128,7 @@ export const NotionPageHeader: React.FC<{
 }> = ({ block }) => {
   const { components, mapPageUrl } = useNotionContext()
   const goToMenu = () => {
-    const el = document.getElementsByClassName("notion-page-scroller");
+    const el = document.getElementsByClassName("notion-page-scroller") as HTMLCollectionOf<HTMLElement>;;
    
     const elHeight = el[0].offsetHeight;
      console.log(elHeight);
