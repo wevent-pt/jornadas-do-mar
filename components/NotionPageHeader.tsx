@@ -23,6 +23,8 @@ const ToggleThemeButton = () => {
     toggleDarkMode()
   }, [toggleDarkMode])
 
+  
+
   return (
     <div
       className={cs('breadcrumb', 'button', !hasMounted && styles.hidden)}
@@ -33,10 +35,59 @@ const ToggleThemeButton = () => {
   )
 }
 
+
+const SiteName = () => {
+  const [hasMounted, setHasMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
+  const goToTop = () => {
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+
+
+
+  };
+  
+  return (
+    <div className={cs('breadcrumbs',!hasMounted && styles.hidden)}>
+      <div className={cs('breadcrumb', 'active',!hasMounted && styles.hidden)}>
+        <span className={cs('title',!hasMounted && styles.hidden)} onClick={goToTop}>Jornadas do mar</span>
+      </div>
+    </div>
+  )
+}
+
+
 export const NotionPageHeader: React.FC<{
   block: types.CollectionViewPageBlock | types.PageBlock
 }> = ({ block }) => {
   const { components, mapPageUrl } = useNotionContext()
+
+  const goToMenu = () => {
+
+
+    const el = document.getElementsByClassName("notion-page-scroller");
+
+   
+    const elHeight = el[0].offsetHeight;
+     console.log(elHeight);
+    window.scrollTo({
+        top: elHeight,
+        behavior: 'smooth',
+    });
+
+
+
+  };
+
+  
 
   if (navigationStyle === 'default') {
     return <Header block={block} />
@@ -45,8 +96,12 @@ export const NotionPageHeader: React.FC<{
   return (
     <header className='notion-header'>
       <div className='notion-nav-header'>
-        <Breadcrumbs block={block} rootOnly={true} />
+        {/*a div com o title está detro deste Breadcrumbs, que é um componente do react*/}
+        {/*<Breadcrumbs block={block} rootOnly={true}/>*/}
+        <SiteName/>
 
+
+      {/*A partir daqui já são as outras cenas da nav bar*/}
         <div className='notion-nav-header-rhs breadcrumbs'>
           {navigationLinks
             ?.map((link, index) => {
@@ -55,15 +110,32 @@ export const NotionPageHeader: React.FC<{
               }
 
               if (link.pageId) {
-                return (
-                  <components.PageLink
-                    href={mapPageUrl(link.pageId)}
-                    key={index}
-                    className={cs(styles.navLink, 'breadcrumb', 'button')}
-                  >
-                    {link.title}
-                  </components.PageLink>
-                )
+
+
+                if(link.title == 'Salas'){
+                  return (
+                    <components.PageLink
+                        // href={'#notion-block-2b73879c0c6946ecab00afc63c74edbd'}
+                        key={index}
+                        className={cs(styles.navLink, 'breadcrumb', 'button')}
+                        onClick={goToMenu}
+                      >
+                        {link.title}
+                    </components.PageLink>
+                  )
+                }
+                else{
+                  return (
+                    <components.PageLink
+                      href={mapPageUrl(link.pageId)}
+                      key={index}
+                      className={cs(styles.navLink, 'breadcrumb', 'button')}
+                    >
+                      {link.title}
+                    </components.PageLink>
+                  )  
+                }
+                
               } else {
                 return (
                   <components.Link
@@ -80,7 +152,7 @@ export const NotionPageHeader: React.FC<{
 
           <ToggleThemeButton />
 
-          {isSearchEnabled && <Search block={block} title={null} />}
+          {/*{isSearchEnabled && <Search block={block} title={null} />}*/}
         </div>
       </div>
     </header>

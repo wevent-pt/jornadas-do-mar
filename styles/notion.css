@@ -44,12 +44,38 @@
 }
  
 .notion-header .notion-nav-header {
-  max-width: 1100px;
+  width: 100%;
+  /*max-width: 1100px;*/
   margin: 0 auto;
+  /*background-color: red;*/
 }
+
+
+/*changes the name on the nav bar*/
+}
+.notion-header .notion-nav-header .breadcrumbs .title{
+  font-size: 1.5vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
  
 .notion-nav-header-rhs {
-  gap: 0.5rem;
+  gap: 1rem;
+  margin-right: 2%;
+}
+
+.notion-header .notion-nav-header-rhs .button:nth-child(1),.notion-header .notion-nav-header-rhs .button:nth-child(2){
+  font-size: 1vw;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.notion-header .notion-nav-header-rhs .button:nth-child(1):hover,.notion-header .notion-nav-header-rhs .button:nth-child(2):hover{
+  background: black;
+  color: white;
 }
  
 .notion-gallery-grid {
@@ -408,4 +434,87 @@
 .notion-table{
   width: 100%!important;
   max-width: 100vw !important;
+}
+
+
+/*edition info container*/
+.notion-block-551bcff8df834f6aae54834d324bd5e2{
+  max-width: 100vw !important;
+  max-height: 60vh !important;
+  width: 100vw !important;
+  height: 40vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-top: 5%;
+  /*background-color: red;*/
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notion-block-551bcff8df834f6aae54834d324bd5e2 > div{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 800px !important;
+  max-width: 800px!important;
+  height: 80%;
+  flex-direction: column;  
+  /*background-color: orange !important;*/
+}
+
+/******************************************************/
+
+
+
+/*.notion-block-a3b7d189d6cd42b5a7bd31f4b58cae4b{
+  background-color: red;
+}
+
+.notion-block-aa173e0796514f9aa46a1427e9665745{
+  background-color: orange;
+}
+
+.notion-block-f6f422aa09d84079ae1acbb514d3f2b2{
+  background-color: green;
+}
+*/
+
+.notion-h-title{
+  font-size: 2vw;
+  font-weight: 900;
+}
+
+.notion-text{
+  font-size: 1.5vw;
+  font-weight: 700;
+  text-align: justify-all;
+}
+
+.notion-callout-text{
+  font-size: 1vw;
+  font-weight: 500;
+}
+
+
+figure >div > span > span img:nth-of-type(1){
+    border-radius: 0;
+    animation: aboutUsAnimation 4s infinite;
+}
+
+@keyFrames aboutUsAnimation{
+  from{
+    mix-blend-mode: normal;
+    opacity: 0;
+  }
+  to{
+    
+   mix-blend-mode: multiply;
+   opacity: 1;
+    
+  }
+
+
 }
