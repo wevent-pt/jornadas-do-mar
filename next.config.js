@@ -27,7 +27,6 @@ module.exports = withBundleAnalyzer({
       },
     ]
   },
-  a
 })
 
 

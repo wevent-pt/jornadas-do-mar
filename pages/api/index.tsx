@@ -5,7 +5,7 @@ import express from 'express'
 
 const app = express();
 app.use(express.json({ limit: 100000 }));
-let config= {
+const config= {
   method: 'post',
   url: 'https://api.notion.com/v1/databases/8fd27dafa3c947a1a15fd16c5936e63b/query',
   headers: { 
@@ -36,9 +36,9 @@ app.get('/api', async (req, res) => {
 app.get('/api/html/:sala', async (req, res) => {
 	
 	const resNotion = await callNotionApi('databases/8a37c9686d234a84923f0390dde78017/query');
-  let data:any = resNotion.results.find(x => x.properties.slug.title[0].plain_text === req.params.sala);
+  const data:any = resNotion.results.find(x => x.properties.slug.title[0].plain_text === req.params.sala);
   // data.properties.html.rich_text[0].text.content
-  let data1 = data.properties.html
+  const data1 = data.properties.html
 	// console.log(data1)
   let data2 = ''
   for (let index = 0; index < data1.rich_text.length; index++) {
