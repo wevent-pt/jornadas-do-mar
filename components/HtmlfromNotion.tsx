@@ -1,10 +1,10 @@
 'use client';
 import * as React from 'react'
-import { useState } from 'react';
 import Script from 'next/script';
+import { useState, useEffect } from 'react';
 
 export default function HtmlfromNotion(props) {
-    
+
     const js =`function welcome() {
         console.log("clicked");
         localStorage.removeItem("userToken");
@@ -108,7 +108,7 @@ export default function HtmlfromNotion(props) {
     function createMarkup(c){
         return { __html: c };
       }
-      const   html=`<div><style>
+      let   html=`<div><style>
       .notion-block-93ecb7a733b146e8846df004c4e841a4 {
       max-width: none;
       max-height: none;
@@ -218,19 +218,12 @@ export default function HtmlfromNotion(props) {
     //   <button onclick="welcome()"> Sair </button>
       </body>
       </html></div>`;
-    return (
-    <> 
-            <div dangerouslySetInnerHTML={createMarkup(html)}></div>
-            {/* <Script type="text/javascript" src="https://pub-7825ca8468f243a093f9019b6fb1bdb7.r2.dev/external/index.js" strategy="lazyOnload"/> */}
-            {/* <script type="text/javascript" src="https://pub-7825ca8468f243a093f9019b6fb1bdb7.r2.dev/external/index.js"/> */}
-        {/* <Script id="sdsd" strategy="afterInteractive" dangerouslySetInnerHTML={{__html: js}}/> */}
-        {/* <Script  id="jsFromNotion" strategy="afterInteractive" dangerouslySetInnerHTML={createMarkup(js)}/> */}
-        {/* <Script
-        id="show-banner"
-        dangerouslySetInnerHTML={{
-          __html: `document.getElementById('banner').classList.remove('hidden')`,
-        }}
-      /> */}
-    </>
-    );
+
+    
+    return(
+        <>
+         <div dangerouslySetInnerHTML={createMarkup(html)}></div>
+          {/* <h1>ddddddddddddddddd</h1> */}
+        </>);
+      
 }

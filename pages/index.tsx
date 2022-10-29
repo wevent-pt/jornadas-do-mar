@@ -3,6 +3,7 @@ import * as React from 'react'
 import { NotionPage } from '@/components/NotionPage'
 import { domain } from '@/lib/config'
 import { resolveNotionPage } from '@/lib/resolve-notion-page'
+import HtmlfromNotion from '@/components/HtmlfromNotion'
 
 export const getStaticProps = async () => {
   try {
@@ -26,5 +27,6 @@ export default function NotionDomainPage(props) {
   <>
     {/* <div dangerouslySetInnerHTML={createMarkup(props.htmlToPage)}></div> */}
     <NotionPage {...props} /> 
+    <HtmlfromNotion {...props}/>
   </>)
 }
