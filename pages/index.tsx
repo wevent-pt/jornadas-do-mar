@@ -19,5 +19,12 @@ export const getStaticProps = async () => {
 }
 
 export default function NotionDomainPage(props) {
-  return <NotionPage {...props} />
+  function createMarkup(c){
+      return { __html: c };
+    }
+  return (
+  <>
+    {/* <div dangerouslySetInnerHTML={createMarkup(props.htmlToPage)}></div> */}
+    <NotionPage {...props} /> 
+  </>)
 }

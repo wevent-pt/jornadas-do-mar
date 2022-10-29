@@ -11,7 +11,7 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
   let pageId: string
   let recordMap: ExtendedRecordMap
   let htmlToPage = ''
-  
+  let jsToPage = ''
 
 
   if (rawPageId && rawPageId !== 'index') {
@@ -95,9 +95,10 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
       .then((response) => response.json())
       .then((data) => { dataFetched = (data)});
     htmlToPage = dataFetched.find(x => x.slug === 'index').html;
+    jsToPage = dataFetched.find(x => x.slug === 'index').js;
+    // console.log("jsssssssssssssssssssss", jsToPage)
+ 
 
-    // console.log("htmlToPage:::\n", htmlToPage)
-
-  const props = { site, recordMap, pageId, htmlToPage }
+  const props = { site, recordMap, pageId, htmlToPage, jsToPage }
   return { ...props, ...(await acl.pageAcl(props)) }
 }
