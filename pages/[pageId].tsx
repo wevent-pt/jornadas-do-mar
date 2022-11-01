@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { GetStaticProps} from 'next'
-import Script from 'next/script'
+// import Script from 'next/script'
 
 import { NotionPage } from '@/components/NotionPage'
 import { domain, isDev } from '@/lib/config'
 import { getSiteMap } from '@/lib/get-site-map'
 import { resolveNotionPage } from '@/lib/resolve-notion-page'
 import { PageProps, Params } from '@/lib/types'
-import HtmlfromNotion from '@/components/HtmlfromNotion'
+// import HtmlfromNotion from '@/components/HtmlfromNotion'
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   context
@@ -53,9 +53,9 @@ export async function getStaticPaths() {
 
 
 export default function NotionDomainDynamicPage(props) {
-  function createMarkup(c){
-      return { __html: c };
-    }
+  // function createMarkup(c){
+  //     return { __html: c };
+  //   }
     // componentDidMount() {
     //   $(this.helloElement).find('[data-my-script]').each(function forEachScript() {
     //     const script = $(this).text();
@@ -68,6 +68,6 @@ export default function NotionDomainDynamicPage(props) {
     {/* <div id="html-from-cloud" dangerouslySetInnerHTML={{__html: props.htmlToPage}}/> */}
     {/* <script type="text/javascript" dangerouslySetInnerHTML={{ __html: props.jsToPage }}></script> */}
     <NotionPage {...props} /> 
-    <HtmlfromNotion {...props}/>
+    {/*<HtmlfromNotion {...props}/>*/}
   </>)
 }

@@ -6,10 +6,19 @@
  * whereas our goal with this site is to adjust Notion's styling in a few key
  * places to add some flare.
  */
- 
+ @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Marmelad&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;
+
+  --title-font: 'Bebas Neue', cursive;
+  --title-font-2: 'Marmelad', sans-serif;
+  --text-font: 'Poppins', sans-serif;
+
+
 }
  
 .notion-page {
@@ -54,31 +63,39 @@
 
 /*changes the name on the nav bar*/
 
-/* .notion-header .notion-nav-header .breadcrumbs .title{
-  font-size: 1.5vw;
-  font-weight: 900;
+ .notion-header .notion-nav-header .breadcrumbs .title{
+  font-size: 2vw;
+  font-weight: 700;
   text-transform: uppercase;
   margin-left: 2%;
   cursor: pointer;
+  font-family: var(--title-font);
 }
 
  
 .notion-nav-header-rhs {
   gap: 1rem;
   margin-right: 2%;
-} */
+} 
 
-/* .notion-header .notion-nav-header-rhs .button:nth-child(1),.notion-header .notion-nav-header-rhs .button:nth-child(2){
+ .notion-header .notion-nav-header-rhs .button:nth-child(2),.notion-header .notion-nav-header-rhs .button:nth-child(3){
   font-size: 1vw;
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
+ 
 }
 
-.notion-header .notion-nav-header-rhs .button:nth-child(1):hover,.notion-header .notion-nav-header-rhs .button:nth-child(2):hover{
-  background: black;
+.notion-header .notion-nav-header-rhs .button:hover{
+  background: #113d52;
   color: white;
 }
-  */
+
+/*.notion-header .notion-nav-header-rhs .button:nth-child(2):hover,.notion-header .notion-nav-header-rhs .button:nth-child(3):hover{
+  background: black;
+  color: white;
+}*/
+  
+
 .notion-gallery-grid {
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   grid-gap: 6vmin;
@@ -417,16 +434,100 @@
 }
 
 
+.notion-full-width{
+  box-sizing: border-box;
+  /*--notion-max-width: calc(min(1920px, 98vw));*/
+  /*padding-left: calc(min(96px, 8vw));*/
+  /*padding-right: calc(min(96px, 8vw));*/
+  padding: 0 !important;
+}
+
+.notion-page-content-inner{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 100vw;
+  height: 99vh !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+/*.notion-page-content-inner > * {
+  min-height: 90vh !important;
+  scroll-snap-align: start;
+}*/
+
+.notion-page-content-inner > figure{
+  min-height: 99vh !important;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+}
+
+.notion-page-content-inner > div{
+  min-height: 90vh !important;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+   --notion-max-width: calc(min(1920px, 98vw));
+  padding-left: calc(min(96px, 8vw));
+  padding-right: calc(min(96px, 8vw));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notion-page-content-inner > h3, .notion-page-content-inner > h4{
+  --notion-max-width: calc(min(1920px, 98vw));
+  padding-left: calc(min(96px, 8vw));
+  padding-right: calc(min(96px, 8vw));
+  min-height: 5vh !important;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+  align-self: flex-start;
+}
+
+.notion-page-content-inner > h4 + div{
+  display: none;
+}
+
+.notion-page-content-inner > h4 + div + div{
+  min-height: 74vh !important;
+}
+
+.notion-page-content-inner > h4 + div + div > div {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+
+.notion-page-content-inner > h3 ~ figure{
+  min-height: 84vh !important;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+}
+
+
+
 
 /*hero image container*/
-.notion-block-93ecb7a733b146e8846df004c4e841a4{
+/*.notion-block-93ecb7a733b146e8846df004c4e841a4{
+  
+}*/
+
+
+/*4ª edição picture*/
+/*.notion-block-d948c9a836fc4144b529158ba2319c46{
   max-width: 100vw !important;
   width: 100vw !important;
   height: auto;
   margin: 0 !important;
   padding: 0 !important;
-  scroll-snap-align: start;
-}
+}*/
 
 /*correct table views*/
 .notion-table-view{
@@ -470,22 +571,10 @@
 
 
 
-/*.notion-block-a3b7d189d6cd42b5a7bd31f4b58cae4b{
-  background-color: red;
-}
-
-.notion-block-aa173e0796514f9aa46a1427e9665745{
-  background-color: orange;
-}
-
-.notion-block-f6f422aa09d84079ae1acbb514d3f2b2{
-  background-color: green;
-}
-*/
-
-/* .notion-h-title{
+ .notion-h-title{
   font-size: 2vw;
   font-weight: 900;
+  font-family: var(--title-font);
 }
 
 .notion-text{
@@ -497,25 +586,5 @@
 .notion-callout-text{
   font-size: 1vw;
   font-weight: 500;
-} */
+} 
 
-
-/* figure >div > span > span img:nth-of-type(1){
-    border-radius: 0;
-    animation: aboutUsAnimation 4s infinite;
-}
-
-@keyFrames aboutUsAnimation{
-  from{
-    mix-blend-mode: normal;
-    opacity: 0;
-  }
-  to{
-    
-   mix-blend-mode: multiply;
-   opacity: 1;
-    
-  }
-
-
-} */
