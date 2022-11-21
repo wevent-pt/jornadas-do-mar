@@ -36,9 +36,9 @@ export const getStaticProps = async () => {
         body: JSON.stringify(userData),
       });
 
-    const data = await response.json();
+    console.log(response);
 
-    console.log('*****Data: ', data);
+
 
     return { props, revalidate: 10 }
   } catch (err) {

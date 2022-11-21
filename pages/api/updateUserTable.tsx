@@ -123,7 +123,7 @@ async function joinUserData(userData: any){
     const {email, nome, bilhete, } = userData;
 
     const auxTrialData = trialData;
-    
+
     auxTrialData.properties.nome['rich_text'][0].text.content = nome;
 
     auxTrialData.properties.nome['rich_text'][0]['plain_text'] = nome;
@@ -158,8 +158,9 @@ export default async function addUser(req: NextApiRequest, res: NextApiResponse)
       config.url = url;
       config.headers['Content-type'] = 'application/json';
       config.data = await joinUserData(userData);
-      const resAxios = await axios(config);	
-      res.status(200).json(resAxios);
+      const resAxios = await axios(config);
+
+      res.status(200).send(resAxios);
 
 
 	}
