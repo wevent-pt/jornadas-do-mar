@@ -10,24 +10,24 @@ export const getStaticProps = async () => {
   try {
     const props = await resolveNotionPage(domain);
 
-    const userData = {
-      email: 'diogocadavez@hotmail.com',
-      nome: 'Diogo Cadavez',
-      bilhete: 'none',
-      Acesso_Componente_1:'no', 
-    }
+    // const userData = {
+    //   email: 'diogocadavez@hotmail.com',
+    //   nome: 'Diogo Cadavez',
+    //   bilhete: 'none',
+    //   Acesso_Componente_1:'no', 
+    // }
     
 
-    const env = process.env.NODE_ENV;
+    // const env = process.env.NODE_ENV;
 
-    let url = null;
+    // let url = null;
 
-    if(env == 'development'){
-      url = "http://localhost:3000/api/userExists"; 
-    }
-    else{
-      url = "https://mar.pedro.gq/api/userExists"
-    }
+    // if(env == 'development'){
+    //   url = "http://localhost:3000/api/userExists"; 
+    // }
+    // else{
+    //   url = "https://mar.pedro.gq/api/userExists"
+    // }
 
     // const response = await fetch(url, {
     //     method: "POST",
