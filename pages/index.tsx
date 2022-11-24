@@ -16,27 +16,30 @@ export const getStaticProps = async () => {
       bilhete: 'none',
       Acesso_Componente_1:'no', 
     }
+    
 
     const env = process.env.NODE_ENV;
 
     let url = null;
 
     if(env == 'development'){
-      url = "http://localhost:3000/api/updateUserTable"; 
+      url = "http://localhost:3000/api/userExists"; 
     }
     else{
-      url = "https://mar.pedro.gq/api/updateUserTable"
+      url = "https://mar.pedro.gq/api/userExists"
     }
 
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
+    // const response = await fetch(url, {
+    //     method: "POST",
+    //     headers: {
+    //       Accept: 'application/json',
+    //       // Accept:'application/x-www-form-urlencoded'
+    //        // 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    //     },
+    //     body: JSON.stringify(userData),
+    // });
 
-    console.log(response);
+    // console.log(response);
 
 
 

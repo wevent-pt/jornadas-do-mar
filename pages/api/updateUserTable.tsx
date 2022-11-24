@@ -144,7 +144,12 @@ export default async function addUser(req: NextApiRequest, res: NextApiResponse)
 
 	try{	
 
-      const userData = JSON.parse(req.body);
+      // USE to add user :http://localhost:3000/api/updateUserTable?email=teste@gmail.com&nome=Teste&bilhete=none
+      // const userData = JSON.parse(req.body) || JSON.parse(req.query);
+      const userData = req.query;
+
+      console.log('userData: ', userData);
+
 
       // const userData = {
       //      email: 'nortada'+Math.random()*157+'@hotmail.com',
@@ -159,7 +164,6 @@ export default async function addUser(req: NextApiRequest, res: NextApiResponse)
       config.headers['Content-type'] = 'application/json';
       config.data = await joinUserData(userData);
       const resAxios = await axios(config);
-
       res.status(200).send(resAxios);
 
 
@@ -171,9 +175,4 @@ export default async function addUser(req: NextApiRequest, res: NextApiResponse)
       res.status(400).json(err);
 	}
 	
-
-
-	
-
-
 }
