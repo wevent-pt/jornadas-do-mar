@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
+import {TOKEN, NOTION_VERSION, USER_TABLE_ID} from './APIConstants';
 
-const token = "secret_L9Vj4blk7LWEN5ds7Wiyb2YfSF0K8ZI0p30uqYAtJgv";
-const notion_version = "2022-06-28";
-
-const user_table_id = 'a323b367cea44d4591c9800aea402350';
+const token = TOKEN;
+const notion_version = NOTION_VERSION;
+const user_table_id = USER_TABLE_ID;
 
 const config = {
     method: null,
@@ -144,8 +144,6 @@ export default async function addUser(req: NextApiRequest, res: NextApiResponse)
 
 	try{	
 
-      // USE to add user :http://localhost:3000/api/updateUserTable?email=teste@gmail.com&nome=Teste&bilhete=none
-      // const userData = JSON.parse(req.body) || JSON.parse(req.query);
       const userData = req.query;
 
       console.log('userData: ', userData);
